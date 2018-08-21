@@ -70,6 +70,9 @@ namespace JIPP_MW
                 //resultAnimation to task ktory od razu sie uruchamia przy wywolaniu i kod leci dalej, a animacja sie znajduje w innym watku
                 ResultAnimation(true);
                 ScoreboardForm scoreboardForm = new ScoreboardForm((int)TimeSpan.FromSeconds(amountOfSeconds).TotalMilliseconds-(int)sw.ElapsedMilliseconds);
+                //okienko scoreboardform ma zdarzenie IncorrectNickHandler
+                // podpinamy do niego funkcje - gdy zostanite do zdarzenie wywolane - czyli osoba wcisnie przycisk na tamtym okienku nie 
+                // wprowadzajac nicku
                 scoreboardForm.IncorrectNickHandler += ScoreboardForm_IncorrectNickHandler;
                 scoreboardForm.Show();
             }
