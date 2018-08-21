@@ -12,7 +12,13 @@ namespace JIPP_MW
 {
     public partial class Form1 : Form
     {
-        bool buttonStatus = false;
+        enum ButtonStatus
+        {
+            Clicked,
+            InProgress,
+            UnClicked
+        }
+        ButtonStatus buttonStatus = ButtonStatus.UnClicked;
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +26,7 @@ namespace JIPP_MW
 
         private async Task WaitForClick()
         {
-            while(buttonStatus != true)
+            while(buttonStatus != ButtonStatus.Clicked)
             {
                 await Task.Delay(10);
             }
@@ -33,7 +39,12 @@ namespace JIPP_MW
             {
                 return;
             }
-            //buttonStatus = !buttonStatus;
+            if (buttonStatus == ButtonStatus.InProgress)
+            {
+                buttonStatus = ButtonStatus.Clicked;
+                return;
+            }
+            buttonStatus = ButtonStatus.InProgress;
             int amountOfSeconds = Int32.Parse(comboBoxSeconds.SelectedItem.ToString());
             buttonStart.Text = "Wcisnij jak najpozniej, ale przed "+ amountOfSeconds.ToString() +" sekundami";
             var task = WaitForClick();
@@ -45,10 +56,8 @@ namespace JIPP_MW
             {
                 Console.WriteLine("Buuu");
             }
-            //var compleatedTask = Task.WhenAny(new Task[]{ WaitForClick(), Task.Delay(TimeSpan.FromSeconds(amountOfSeconds))});
-            //Console.WriteLine("b");
             buttonStart.Text = "Start";
-            //buttonStatus = !buttonStatus;
+            buttonStatus = ButtonStatus.UnClicked;
         }
 
         private void Form1_Load(object sender, EventArgs e)
