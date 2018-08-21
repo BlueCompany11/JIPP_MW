@@ -33,6 +33,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxSeconds = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanelAnimation = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -45,6 +46,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Controls.Add(this.buttonStart, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanelAnimation, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -106,6 +108,19 @@
             this.comboBoxSeconds.Size = new System.Drawing.Size(165, 21);
             this.comboBoxSeconds.TabIndex = 1;
             // 
+            // tableLayoutPanelAnimation
+            // 
+            this.tableLayoutPanelAnimation.ColumnCount = 1;
+            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanelAnimation, 3);
+            this.tableLayoutPanelAnimation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelAnimation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelAnimation.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelAnimation.Name = "tableLayoutPanelAnimation";
+            this.tableLayoutPanelAnimation.RowCount = 1;
+            this.tableLayoutPanelAnimation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelAnimation.Size = new System.Drawing.Size(1040, 161);
+            this.tableLayoutPanelAnimation.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,6 +144,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxSeconds;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelAnimation;
     }
 }
 
